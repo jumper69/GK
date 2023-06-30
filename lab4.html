@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GK - Lab4</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600"
+        height="600" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid" style="background: #eeeeee">
+        <defs>
+            <g id="object">
+
+
+                <polygon points="203.30127018922195,383 160,408 116.69872981077808,383 116.69872981077806,333 160,308 203.30127018922195,333" fill="black">
+                    <animateTransform attributeName="transform" type="rotate" from="0 160 358" to="360 160 358"
+                                      dur="10s" repeatCount="indefinite" />
+                </polygon>
+
+
+                <polygon points="485.30127018922195,459 442,484 398.6987298107781,459 398.69872981077805,409 442,384 485.30127018922195,409" fill="black">
+                    <animateTransform attributeName="transform" type="rotate" from="0 442 434" to="360 442 434"
+                                      dur="10s" repeatCount="indefinite" />
+                </polygon>
+
+
+                <rect x="120" y="390" width="320" height="25" transform="translate(135, -65) rotate(15)" fill="red" />
+                <polygon points="270,600 300,400 330, 600" />
+            </g>
+        </defs>
+
+        <use xlink:href="#object" fill="blue" transform="translate(40, 0)" />
+        <use xlink:href="#object" fill="purple" transform="translate(-56, -145) scale(0.7, 0.7)" />
+        <use xlink:href="#object" fill="green" transform="translate(335, -130) scale(0.5, 0.5)" />
+
+        </defs>
+    </svg>
+
+</body>
+</html>
