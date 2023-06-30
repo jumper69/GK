@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        margin: 0;
+        background-color: whitesmoke;
+      }
+
+      canvas {
+        width: auto;
+        height: auto;
+      }
+    </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  </head>
+  <body>
+    <script>
+      let canvas = document.getElementById("glcanvas");
+
+      const scene = new THREE.Scene({ color: 0xfff });
+
+      const camera = new THREE.PerspectiveCamera(
+        100,
+        window.innerWidth / window.innerHeight,
+        1,
+        1000
+      );
+
+      const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+      });
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+      document.body.appendChild(renderer.domElement);
+
+      const light = new THREE.PointLight(0xffffff, 1.5, 999);
+      light.position.set(3, 10, 10);
+      camera.add(light);
+      scene.add(camera);
+
+      const material = new THREE.MeshPhongMaterial({
+        color: 0xcccccc,
+      });
+
+      let white_knight = new THREE.Group();
+
+      const knightGeometry_1 = new THREE.CylinderGeometry(0.8, 0.8, 0.1, 100);
+      const knightPart_1 = new THREE.Mesh(knightGeometry_1, material);
+      knightPart_1.position.y = 0;
+      white_knight.add(knightPart_1);
+
+      const knightGeometry_2 = new THREE.CylinderGeometry(0.45, 0.7, 0.8, 100);
+      const knightPart_2 = new THREE.Mesh(knightGeometry_2, material);
+      knightPart_2.position.y = 0.45;
+      white_knight.add(knightPart_2);
+
+      const knightGeometry_3 = new THREE.CylinderGeometry(0.55, 0.55, 0.4, 100);
+      const knightPart_3 = new THREE.Mesh(knightGeometry_3, material);
+      knightPart_3.position.y = 1.85;
+      white_knight.add(knightPart_3);
+
+      const knightGeometry_4 = new THREE.CylinderGeometry(0.4, 0.46, 1.4, 100);
+      const knightPart_4 = new THREE.Mesh(knightGeometry_4, material);
+      knightPart_4.position.y = 1.5;
+      white_knight.add(knightPart_4);
+
+      const knightGeometry_5 = new THREE.CylinderGeometry(0.75, 0.75, 0.1, 100);
+      const knightPart_5 = new THREE.Mesh(knightGeometry_5, material);
+      knightPart_5.position.y = 2.1;
+      white_knight.add(knightPart_5);
+
+      const knightGeometry_6 = new THREE.CylinderGeometry(0.8, 0.8, 0.2, 100);
+      const knightPart_6 = new THREE.Mesh(knightGeometry_6, material);
+      white_knight.add(knightPart_6);
+      knightPart_6.position.y = 2.25;
+
+      white_knight.position.set(0, -1, 1);
+      scene.add(white_knight);
+      renderer.render(scene, camera);
+
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      }
+
+      camera.position.z = 4.5;
+
+      animate();
+    </script>
+  </body>
+</html>
